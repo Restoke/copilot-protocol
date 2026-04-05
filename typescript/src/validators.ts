@@ -7,13 +7,24 @@ const REQUIRED_ENVELOPE_FIELDS = [
   "content",
 ] as const;
 
+/** Fields where an empty string is never valid. */
+const NON_EMPTY_FIELDS: ReadonlySet<string> = new Set([
+  "message_id",
+  "message_type",
+  "channel",
+]);
+
 export function validateEnvelope(message: Frame): string[] {
   const errors: string[] = [];
 
   for (const field of REQUIRED_ENVELOPE_FIELDS) {
     if (!(field in message)) {
       errors.push(`missing required field: ${field}`);
-    } else if (typeof message[field] === "string" && message[field] === "") {
+    } else if (
+      NON_EMPTY_FIELDS.has(field) &&
+      typeof message[field] === "string" &&
+      message[field] === ""
+    ) {
       errors.push(`field '${field}' must not be empty`);
     }
   }
