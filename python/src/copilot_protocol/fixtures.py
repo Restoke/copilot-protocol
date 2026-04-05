@@ -10,4 +10,4 @@ def load_fixture(path: str | Path) -> dict[str, Any]:
 
 
 def fixtures_dir() -> Path:
-    return Path(__file__).resolve().parents[3] / "fixtures"
+    return Path(__file__).resolve().parent / "fixtures"

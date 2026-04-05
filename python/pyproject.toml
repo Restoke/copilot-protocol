@@ -19,5 +19,9 @@ dev = [
 [tool.hatch.build.targets.wheel]
 packages = ["src/copilot_protocol"]
 
+[tool.hatch.build.targets.wheel.force-include]
+"../fixtures" = "copilot_protocol/fixtures"
+"../schemas" = "copilot_protocol/schemas"
+
 [tool.pytest.ini_options]
 testpaths = ["tests"]

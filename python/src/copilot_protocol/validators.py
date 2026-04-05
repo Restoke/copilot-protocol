@@ -8,7 +8,7 @@ from jsonschema import Draft202012Validator
 
 
 def _schemas_dir() -> Path:
-    return Path(__file__).resolve().parents[3] / "schemas"
+    return Path(__file__).resolve().parent / "schemas"
 
 
 def _load_schema(name: str) -> dict[str, Any]:
