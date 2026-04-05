@@ -6,10 +6,10 @@
       "message_id": "1",
       "message_type": "ERROR",
       "channel": "chat",
-      "content": "Something went wrong.",
+      "content": "Something went wrong while processing your message.",
       "error": {
         "code": "INTERNAL_ERROR",
-        "user_message": "Something went wrong."
+        "user_message": "Something went wrong while processing your message."
       }
     },
     {
