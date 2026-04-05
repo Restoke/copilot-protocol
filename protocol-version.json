@@ -1,6 +1,6 @@
 {
   "protocol_name": "copilot-streaming-protocol",
-  "current_version": "1.0.0",
+  "current_version": "1.1.0",
   "minimum_supported_client_version": "1.0.0",
   "minimum_supported_server_version": "1.0.0"
 }
