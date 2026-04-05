@@ -1,7 +1,10 @@
 {
   "name": "@restoke/copilot-protocol",
   "version": "0.1.0",
+  "main": "./typescript/dist/index.js",
+  "types": "./typescript/dist/index.d.ts",
   "exports": {
+    ".": "./typescript/dist/index.js",
     "./fixtures/*": "./fixtures/*",
     "./schemas/*": "./schemas/*"
   }
