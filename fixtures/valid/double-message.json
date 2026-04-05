@@ -1,0 +1,54 @@
+{
+  "name": "double-message",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "STATUS",
+      "content": "",
+      "channel": "chat"
+    },
+    {
+      "message_id": "2",
+      "message_type": "FRAGMENT",
+      "content": "It looks like you mentioned \"Double Message.\" Could you clarify what you mean? Let me know how I can assist!",
+      "channel": "chat"
+    },
+    {
+      "message_id": "3",
+      "message_type": "MESSAGE_ENDED",
+      "content": {},
+      "channel": "chat"
+    },
+    {
+      "message_id": "4",
+      "message_type": "WIDGET",
+      "content": {
+        "type": "suggestions",
+        "data": [
+          {
+            "text": "What are the profit margins for each of these top-selling categories?"
+          },
+          {
+            "text": "Which specific items within the Beer category generated the highest sales?"
+          },
+          {
+            "text": "How did the sales trends for these categories change month-over-month during 2025?"
+          }
+        ],
+        "props": {
+          "header": "Suggested follow-up questions:"
+        }
+      },
+      "channel": "chat"
+    },
+    {
+      "message_id": "5",
+      "message_type": "PROTOCOL",
+      "content": {
+        "type": "TURN_COMPLETE"
+      },
+      "channel": "chat"
+    }
+  ]
+}

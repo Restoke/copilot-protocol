@@ -6,7 +6,12 @@
     "valid/turn-success-widget-only.json",
     "valid/turn-success-empty.json",
     "valid/turn-error.json",
-    "valid/turn-abort.json"
+    "valid/turn-abort.json",
+    "valid/double-message.json",
+    "valid/hello-with-suggestions.json",
+    "valid/sales-request.json",
+    "valid/turn-success-structured.json",
+    "valid/turn-success-with-status.json"
   ],
   "invalid": [
     "invalid/duplicate-turn-complete.json",

@@ -1,0 +1,51 @@
+{
+  "name": "hello-with-suggestions",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "STATUS",
+      "content": "",
+      "channel": "chat"
+    },
+    {
+      "message_id": "2",
+      "message_type": "FRAGMENT",
+      "content": "Hi again, Sofie! How's everything going tonight?",
+      "channel": "chat"
+    },
+    {
+      "message_id": "3",
+      "message_type": "MESSAGE_ENDED",
+      "content": {},
+      "channel": "chat"
+    },
+    {
+      "message_id": "4",
+      "message_type": "WIDGET",
+      "content": {
+        "type": "suggestions",
+        "data": [
+          {
+            "text": "Show me my top-selling recipes from the past month?"
+          },
+          {
+            "text": "Show my recent supplier purchase patterns?"
+          }
+        ],
+        "props": {
+          "header": "Suggested follow-up questions:"
+        }
+      },
+      "channel": "chat"
+    },
+    {
+      "message_id": "5",
+      "message_type": "PROTOCOL",
+      "content": {
+        "type": "TURN_COMPLETE"
+      },
+      "channel": "chat"
+    }
+  ]
+}

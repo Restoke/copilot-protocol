@@ -1,0 +1,32 @@
+{
+  "name": "turn-success-with-status",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "STATUS",
+      "content": "tool_call:search_menu",
+      "channel": "chat"
+    },
+    {
+      "message_id": "2",
+      "message_type": "FRAGMENT",
+      "content": "Your top seller is Margherita.",
+      "channel": "chat"
+    },
+    {
+      "message_id": "3",
+      "message_type": "MESSAGE_ENDED",
+      "content": {},
+      "channel": "chat"
+    },
+    {
+      "message_id": "4",
+      "message_type": "PROTOCOL",
+      "content": {
+        "type": "TURN_COMPLETE"
+      },
+      "channel": "chat"
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "turn-success-structured",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "STRUCTURED",
+      "content": "",
+      "channel": "chat",
+      "structured_data": {
+        "dish": "Margherita",
+        "score": 0.92
+      },
+      "object_type": "recipe_match"
+    },
+    {
+      "message_id": "2",
+      "message_type": "PROTOCOL",
+      "content": {
+        "type": "TURN_COMPLETE"
+      },
+      "channel": "chat"
+    }
+  ]
+}

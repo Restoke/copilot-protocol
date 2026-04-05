@@ -1,0 +1,78 @@
+{
+  "name": "sales-request",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "STATUS",
+      "content": "tool_call: say({\"message\": \"Clarifying your request...\"})",
+      "channel": "chat"
+    },
+    {
+      "message_id": "2",
+      "message_type": "STATUS",
+      "content": "",
+      "channel": "chat"
+    },
+    {
+      "message_id": "3",
+      "message_type": "FRAGMENT",
+      "content": "Clarifying your request...\n",
+      "channel": "chat"
+    },
+    {
+      "message_id": "4",
+      "message_type": "MESSAGE_ENDED",
+      "content": {},
+      "channel": "chat"
+    },
+    {
+      "message_id": "5",
+      "message_type": "STATUS",
+      "content": "",
+      "channel": "chat"
+    },
+    {
+      "message_id": "6",
+      "message_type": "FRAGMENT",
+      "content": "Could you clarify? Are you looking for a breakdown by category, trends, or top sellers?",
+      "channel": "chat"
+    },
+    {
+      "message_id": "7",
+      "message_type": "MESSAGE_ENDED",
+      "content": {},
+      "channel": "chat"
+    },
+    {
+      "message_id": "8",
+      "message_type": "WIDGET",
+      "content": {
+        "type": "suggestions",
+        "data": [
+          {
+            "text": "Which menu items generated the highest sales in 2025?"
+          },
+          {
+            "text": "How did sales trends fluctuate month-to-month in 2025?"
+          },
+          {
+            "text": "What were the profit margins for top-selling categories in 2025?"
+          }
+        ],
+        "props": {
+          "header": "Suggested follow-up questions:"
+        }
+      },
+      "channel": "chat"
+    },
+    {
+      "message_id": "9",
+      "message_type": "PROTOCOL",
+      "content": {
+        "type": "TURN_COMPLETE"
+      },
+      "channel": "chat"
+    }
+  ]
+}
