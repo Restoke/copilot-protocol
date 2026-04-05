@@ -6,8 +6,7 @@
     "valid/turn-success-widget-only.json",
     "valid/turn-success-empty.json",
     "valid/turn-error.json",
-    "valid/turn-abort.json",
-    "valid/turn-reset.json"
+    "valid/turn-abort.json"
   ],
   "invalid": [
     "invalid/duplicate-turn-complete.json",

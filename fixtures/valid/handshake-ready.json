@@ -5,10 +5,10 @@
     {
       "message_id": "1",
       "message_type": "PROTOCOL",
-      "channel": "system",
+      "channel": "control",
       "content": {
         "type": "READY",
-        "protocol_version": "1.0"
+        "protocol_version": "1.0.0"
       }
     }
   ]
