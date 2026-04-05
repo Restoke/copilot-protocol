@@ -1,0 +1,14 @@
+{
+  "name": "handshake-missing-version",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "PROTOCOL",
+      "channel": "control",
+      "content": {
+        "type": "READY"
+      }
+    }
+  ]
+}

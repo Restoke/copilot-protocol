@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../envelope.schema.json" },
+    {
+      "type": "object",
+      "properties": {
+        "message_type": { "const": "MESSAGE_ENDED" },
+        "content": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  ]
+}

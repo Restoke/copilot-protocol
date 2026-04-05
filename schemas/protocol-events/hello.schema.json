@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "HelloEvent",
+  "description": "Future: client-initiated version negotiation. Not used in v1.",
+  "type": "object",
+  "required": ["type", "min_version", "max_version"],
+  "properties": {
+    "type": { "const": "HELLO" },
+    "min_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "max_version": {
+      "type": "string",
+      "minLength": 1
+    },
+    "capabilities": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "additionalProperties": true
+}

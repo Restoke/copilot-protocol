@@ -1,0 +1,25 @@
+{
+  "name": "turn-success-widget-only",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "WIDGET",
+      "channel": "chat",
+      "content": {
+        "widget_type": "table",
+        "payload": {
+          "rows": []
+        }
+      }
+    },
+    {
+      "message_id": "2",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE"
+      }
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "name": "missing-message-type",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "channel": "chat",
+      "content": "no message_type field"
+    }
+  ]
+}

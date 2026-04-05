@@ -1,0 +1,13 @@
+{
+  "name": "compatibility-rules",
+  "backward_compatible": [
+    "adding_optional_fields",
+    "adding_new_message_types"
+  ],
+  "breaking": [
+    "changing_turn_complete_semantics",
+    "changing_terminal_behavior",
+    "removing_fields",
+    "changing_message_ordering_guarantees"
+  ]
+}

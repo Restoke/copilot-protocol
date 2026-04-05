@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../envelope.schema.json" },
+    {
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "message_type": { "const": "PROTOCOL" },
+        "content": {
+          "type": "object",
+          "required": ["type"],
+          "properties": {
+            "type": {
+              "enum": ["READY", "TURN_COMPLETE"]
+            },
+            "protocol_version": {
+              "type": "string"
+            },
+            "capabilities": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    }
+  ]
+}

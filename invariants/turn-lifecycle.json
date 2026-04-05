@@ -1,0 +1,10 @@
+{
+  "name": "turn-lifecycle",
+  "rules": [
+    "exactly_one_turn_complete_per_accepted_turn",
+    "turn_complete_must_be_last_server_frame_of_turn",
+    "no_server_frames_after_turn_complete_before_next_client_turn",
+    "message_ended_is_not_terminal",
+    "error_is_not_terminal"
+  ]
+}

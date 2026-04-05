@@ -1,0 +1,32 @@
+{
+  "name": "turn-success-streaming",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "FRAGMENT",
+      "channel": "chat",
+      "content": "Hello"
+    },
+    {
+      "message_id": "2",
+      "message_type": "FRAGMENT",
+      "channel": "chat",
+      "content": " world"
+    },
+    {
+      "message_id": "3",
+      "message_type": "MESSAGE_ENDED",
+      "channel": "chat",
+      "content": {}
+    },
+    {
+      "message_id": "4",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE"
+      }
+    }
+  ]
+}

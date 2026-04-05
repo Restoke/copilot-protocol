@@ -1,0 +1,15 @@
+{
+  "name": "handshake-ready",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "PROTOCOL",
+      "channel": "system",
+      "content": {
+        "type": "READY",
+        "protocol_version": "1.0"
+      }
+    }
+  ]
+}

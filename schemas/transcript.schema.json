@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Transcript",
+  "type": "object",
+  "required": ["name", "direction", "frames"],
+  "properties": {
+    "name": { "type": "string" },
+    "direction": {
+      "type": "string",
+      "enum": ["client_to_server", "server_to_client", "bidirectional"]
+    },
+    "frames": {
+      "type": "array",
+      "items": { "$ref": "./envelope.schema.json" }
+    }
+  }
+}

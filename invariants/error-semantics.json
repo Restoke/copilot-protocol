@@ -1,0 +1,8 @@
+{
+  "name": "error-semantics",
+  "rules": [
+    "at_most_one_error_per_turn",
+    "error_must_precede_turn_complete",
+    "error_must_not_follow_turn_complete"
+  ]
+}

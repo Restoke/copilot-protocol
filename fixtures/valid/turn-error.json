@@ -1,0 +1,24 @@
+{
+  "name": "turn-error",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "ERROR",
+      "channel": "chat",
+      "content": "Something went wrong.",
+      "error": {
+        "code": "INTERNAL_ERROR",
+        "user_message": "Something went wrong."
+      }
+    },
+    {
+      "message_id": "2",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE"
+      }
+    }
+  ]
+}

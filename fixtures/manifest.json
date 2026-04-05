@@ -1,0 +1,21 @@
+{
+  "valid": [
+    "valid/handshake-ready.json",
+    "valid/handshake-ready-with-capabilities.json",
+    "valid/turn-success-streaming.json",
+    "valid/turn-success-widget-only.json",
+    "valid/turn-success-empty.json",
+    "valid/turn-error.json",
+    "valid/turn-abort.json",
+    "valid/turn-reset.json"
+  ],
+  "invalid": [
+    "invalid/duplicate-turn-complete.json",
+    "invalid/turn-complete-not-last.json",
+    "invalid/error-after-turn-complete.json",
+    "invalid/message-after-turn-complete.json",
+    "invalid/missing-message-type.json",
+    "invalid/invalid-protocol-event.json",
+    "invalid/handshake-missing-version.json"
+  ]
+}

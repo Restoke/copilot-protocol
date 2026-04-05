@@ -1,0 +1,14 @@
+{
+  "name": "turn-success-empty",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE"
+      }
+    }
+  ]
+}

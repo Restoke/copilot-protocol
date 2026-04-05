@@ -1,0 +1,24 @@
+{
+  "name": "error-after-turn-complete",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE"
+      }
+    },
+    {
+      "message_id": "2",
+      "message_type": "ERROR",
+      "channel": "chat",
+      "content": "late error",
+      "error": {
+        "code": "LATE_ERROR",
+        "user_message": "This should not happen."
+      }
+    }
+  ]
+}

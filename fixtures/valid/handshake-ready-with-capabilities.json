@@ -1,0 +1,22 @@
+{
+  "name": "handshake-ready-with-capabilities",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "PROTOCOL",
+      "channel": "control",
+      "content": {
+        "type": "READY",
+        "protocol_version": "1.0.0",
+        "min_client_version": "1.0.0",
+        "capabilities": [
+          "turn_complete",
+          "error_then_turn_complete",
+          "widget",
+          "structured"
+        ]
+      }
+    }
+  ]
+}

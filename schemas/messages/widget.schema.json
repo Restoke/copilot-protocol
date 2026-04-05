@@ -1,0 +1,21 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../envelope.schema.json" },
+    {
+      "type": "object",
+      "required": ["content"],
+      "properties": {
+        "message_type": { "const": "WIDGET" },
+        "content": {
+          "type": "object",
+          "required": ["widget_type", "payload"],
+          "properties": {
+            "widget_type": { "type": "string" },
+            "payload": { "type": "object" }
+          }
+        }
+      }
+    }
+  ]
+}

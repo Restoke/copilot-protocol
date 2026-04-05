@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    { "$ref": "../envelope.schema.json" },
+    {
+      "type": "object",
+      "required": ["error"],
+      "properties": {
+        "message_type": { "const": "ERROR" },
+        "content": {
+          "type": ["string", "object", "null"]
+        },
+        "error": {
+          "type": "object",
+          "required": ["code", "user_message"],
+          "properties": {
+            "code": { "type": "string" },
+            "user_message": { "type": "string" },
+            "internal_message": { "type": "string" }
+          },
+          "additionalProperties": true
+        }
+      }
+    }
+  ]
+}

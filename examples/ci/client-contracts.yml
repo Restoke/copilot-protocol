@@ -1,0 +1,20 @@
+# Example: add this job to your client repo's CI workflow.
+# It validates that the client correctly handles protocol transcripts.
+
+name: client-contracts
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  protocol-contracts:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - run: npm ci
+      - run: npm install copilot-protocol
+      - run: npm test -- --grep "protocol-contracts"
