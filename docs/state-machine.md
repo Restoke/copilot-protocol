@@ -93,7 +93,8 @@ RESETTING
 | SUBMITTED    | request sent, awaiting response|
 | STREAMING    | receiving FRAGMENT/WIDGET/etc  |
 | BLOCK_ENDED  | MESSAGE_ENDED received         |
-| COMPLETED    | TURN_COMPLETE received         |
+| ANSWERED     | TURN_COMPLETE with more=true, optional widgets pending |
+| COMPLETED    | TURN_COMPLETE without more, or TURN_SETTLED received |
 | FAILED       | ERROR received (non-terminal)  |
 | ABORTING     | ABORT sent                     |
 | RESETTING    | RESET sent                     |
@@ -176,12 +177,14 @@ COMPLETED
 
 ### Rules
 
-1. TURN_COMPLETE MUST:
-   - occur exactly once
-   - be the last frame of the turn
-
-2. After COMPLETED:
-   - no further frames allowed until next CHUNK
+1. TURN_COMPLETE MUST occur exactly once. Without `more: true`, it is the last frame.
+2. With `more: true`, the client enters ANSWERED. Only optional WIDGET frames may
+   follow, then exactly one final TURN_SETTLED moves it to COMPLETED.
+3. ERROR and FRAGMENT cannot follow TURN_COMPLETE. Optional enrichment failures
+   must preserve the completed answer and still settle the turn.
+4. The next CHUNK or RESET may be sent in ANSWERED, but the server processes it
+   only after the prior TURN_SETTLED. Frames from different turns cannot interleave.
+5. After COMPLETED, no further frames belong to that turn.
 
 ---
 
@@ -320,7 +323,7 @@ MESSAGE_ENDED
 
 Client MUST:
 
-- treat TURN_COMPLETE as **only terminal signal**
+- end answer waiting at TURN_COMPLETE; wait for TURN_SETTLED before ending a turn marked more=true
 - not treat MESSAGE_ENDED as terminal
 - handle:
   - empty turns
@@ -340,7 +343,7 @@ Server MUST:
   - abort
   - reset
   - no content
-- not emit frames after TURN_COMPLETE
+- after TURN_COMPLETE with more=true, emit only optional widgets and a final TURN_SETTLED; otherwise emit no more frames
 
 ---
 

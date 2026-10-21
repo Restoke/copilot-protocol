@@ -1,0 +1,29 @@
+{
+  "name": "fragment-after-answer-complete",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE",
+        "more": true
+      }
+    },
+    {
+      "message_id": "2",
+      "message_type": "FRAGMENT",
+      "channel": "chat",
+      "content": "late answer"
+    },
+    {
+      "message_id": "3",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_SETTLED"
+      }
+    }
+  ]
+}

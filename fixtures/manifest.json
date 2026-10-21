@@ -11,7 +11,9 @@
     "valid/hello-with-suggestions.json",
     "valid/sales-request.json",
     "valid/turn-success-structured.json",
-    "valid/turn-success-with-status.json"
+    "valid/turn-success-with-status.json",
+    "valid/turn-answer-before-widgets.json",
+    "valid/turn-settled-without-widgets.json"
   ],
   "invalid": [
     "invalid/duplicate-turn-complete.json",
@@ -20,6 +22,14 @@
     "invalid/message-after-turn-complete.json",
     "invalid/missing-message-type.json",
     "invalid/invalid-protocol-event.json",
-    "invalid/handshake-missing-version.json"
+    "invalid/handshake-missing-version.json",
+    "invalid/missing-turn-settled.json",
+    "invalid/unexpected-turn-settled.json",
+    "invalid/turn-settled-before-answer.json",
+    "invalid/duplicate-turn-settled.json",
+    "invalid/widget-after-turn-settled.json",
+    "invalid/fragment-after-answer-complete.json",
+    "invalid/error-after-answer-complete.json",
+    "invalid/nonboolean-more.json"
   ]
 }

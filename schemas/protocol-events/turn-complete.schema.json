@@ -2,9 +2,17 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "title": "TurnCompleteEvent",
   "type": "object",
-  "required": ["type"],
+  "required": [
+    "type"
+  ],
   "properties": {
-    "type": { "const": "TURN_COMPLETE" }
+    "type": {
+      "const": "TURN_COMPLETE"
+    },
+    "more": {
+      "type": "boolean",
+      "description": "Optional widgets may follow before TURN_SETTLED when true."
+    }
   },
   "additionalProperties": true
 }

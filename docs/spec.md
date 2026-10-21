@@ -22,7 +22,7 @@ It supports:
 These are invariants—not suggestions.
 
 1. **Every accepted request produces exactly one terminal event**
-2. **TURN_COMPLETE is the only turn-terminal event**
+2. **TURN_COMPLETE is terminal unless more=true; then TURN_SETTLED is terminal**
 3. **ERROR does not terminate a turn**
 4. **MESSAGE_ENDED does not terminate a turn**
 5. **Protocol events and application events are distinct**
@@ -158,7 +158,7 @@ Server:
 ### 7.3 Invariants
 
 1. Exactly one TURN_COMPLETE per turn
-2. TURN_COMPLETE is always last
+2. TURN_COMPLETE is last unless more=true; then optional WIDGET frames and one final TURN_SETTLED may follow
 3. ERROR may appear before TURN_COMPLETE
 4. MESSAGE_ENDED may appear zero or more times
 5. Zero-content turns are valid:
@@ -174,9 +174,9 @@ Server:
 These MUST NOT occur:
 
 * Multiple TURN_COMPLETE
-* TURN_COMPLETE not last
+* TURN_COMPLETE without more=true not last
 * ERROR after TURN_COMPLETE
-* Messages after TURN_COMPLETE (until next turn)
+* Non-widget messages after TURN_COMPLETE; any messages after TURN_SETTLED until the next turn
 * MESSAGE_ENDED without preceding content block
 
 ---
@@ -302,7 +302,7 @@ Client MUST:
 
 Client MUST:
 
-* treat TURN_COMPLETE as **only terminal signal**
+* end answer waiting at TURN_COMPLETE and await TURN_SETTLED when more=true
 * not rely on MESSAGE_ENDED for lifecycle
 * handle zero-content turns
 * handle ERROR + TURN_COMPLETE sequence
@@ -321,7 +321,7 @@ Server MUST:
   * abort
   * no content
 * not emit duplicate ERROR
-* not emit messages after TURN_COMPLETE
+* emit only optional widgets and final TURN_SETTLED after TURN_COMPLETE with more=true; otherwise emit no more messages
 
 ---
 
@@ -371,3 +371,14 @@ FRAGMENT
 (PROCESS INTERRUPTED)
 PROTOCOL(TURN_COMPLETE)
 ```
+
+
+## Version 2 answer completion and settlement
+
+`TURN_COMPLETE` occurs once per turn. Its optional `more` field is boolean.
+Without `more: true`, it remains the last frame. With `more: true`, only optional
+WIDGET frames may follow; one final `TURN_SETTLED` ends the turn. ERROR and
+answer FRAGMENT frames are forbidden after answer completion. Next requests and
+RESET may be submitted immediately, but their server frames wait for settlement.
+This changes version 1 terminal behavior and therefore requires protocol 2.0.0
+and a version 2 client, as required by the compatibility policy.

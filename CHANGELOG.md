@@ -1,5 +1,11 @@
 # Changelog
 
+## 2.0.0 - Unreleased
+
+- Add conditional early answer completion with `more: true`, optional widgets and final `TURN_SETTLED`.
+- Update both validators, schemas and shared valid/invalid fixtures.
+- Require version 2 clients and servers for the changed lifecycle.
+
 ## 1.1.0 — 2026-04-06
 
 ### Added
