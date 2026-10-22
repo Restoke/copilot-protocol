@@ -1,0 +1,44 @@
+{
+  "name": "turn-answer-before-widgets",
+  "direction": "server_to_client",
+  "frames": [
+    {
+      "message_id": "1",
+      "message_type": "FRAGMENT",
+      "channel": "chat",
+      "content": "Answer"
+    },
+    {
+      "message_id": "2",
+      "message_type": "MESSAGE_ENDED",
+      "channel": "chat",
+      "content": {}
+    },
+    {
+      "message_id": "3",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_COMPLETE",
+        "more": true
+      }
+    },
+    {
+      "message_id": "4",
+      "message_type": "WIDGET",
+      "channel": "chat",
+      "content": {
+        "type": "suggestions",
+        "data": []
+      }
+    },
+    {
+      "message_id": "5",
+      "message_type": "PROTOCOL",
+      "channel": "chat",
+      "content": {
+        "type": "TURN_SETTLED"
+      }
+    }
+  ]
+}

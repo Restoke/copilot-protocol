@@ -1,6 +1,6 @@
 {
   "name": "copilot-protocol",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Copilot Streaming Protocol validators and fixtures",
   "type": "module",
   "main": "dist/index.js",

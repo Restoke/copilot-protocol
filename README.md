@@ -14,12 +14,23 @@ This repo is the single source of truth. It defines what a legal protocol exchan
 
 The protocol is built on a small set of non-negotiable rules:
 
-1. Every accepted request produces exactly one terminal event
-2. `TURN_COMPLETE` is the only turn-terminal event
+1. Every accepted request produces exactly one `TURN_COMPLETE`.
+2. `TURN_COMPLETE` is terminal unless it carries `more: true`. Then only optional widgets may follow, and exactly one final `TURN_SETTLED` ends the turn.
 3. `ERROR` does not terminate a turn — it must be followed by `TURN_COMPLETE`
 4. `MESSAGE_ENDED` does not terminate a turn
 5. Protocol events and application events are distinct
 6. Unknown message types must not break the client
+
+## Version 2 settlement
+
+This is a major protocol change under the compatibility policy. Version 2 clients
+may send their next request when `TURN_COMPLETE` arrives. With `more: true`, they
+continue accepting optional tables and suggestions until `TURN_SETTLED`. Servers
+queue the next request, including RESET, until that settlement so turns cannot
+interleave. Errors and answer fragments cannot follow `TURN_COMPLETE`.
+
+Deploy the shared version 2 package and a version 2 client before enabling server
+early completion. The version 1 sequence without `more` remains valid in version 2.
 
 ## Project structure
 
